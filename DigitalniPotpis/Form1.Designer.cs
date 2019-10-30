@@ -33,11 +33,11 @@
             this.UiAsimetricnoKriptiranjeButton = new System.Windows.Forms.Button();
             this.UiTekstZaKriptiranjeTxt = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.UiSimetricnoDekriptiranjeButton = new System.Windows.Forms.Button();
+            this.UiAsimetricnoDekriptiranjeButton = new System.Windows.Forms.Button();
+            this.UiSimetricnoKriptiranjeButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.UiTajniKljucButton = new System.Windows.Forms.Button();
-            this.UiSimetricnoKriptiranjeButton = new System.Windows.Forms.Button();
-            this.UiAsimetricnoDekriptiranjeButton = new System.Windows.Forms.Button();
-            this.UiSimetricnoDekriptiranjeButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -96,6 +96,39 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Kriptiranje i Dekriptiranje";
             // 
+            // UiSimetricnoDekriptiranjeButton
+            // 
+            this.UiSimetricnoDekriptiranjeButton.Location = new System.Drawing.Point(179, 119);
+            this.UiSimetricnoDekriptiranjeButton.Name = "UiSimetricnoDekriptiranjeButton";
+            this.UiSimetricnoDekriptiranjeButton.Size = new System.Drawing.Size(155, 55);
+            this.UiSimetricnoDekriptiranjeButton.TabIndex = 9;
+            this.UiSimetricnoDekriptiranjeButton.TabStop = false;
+            this.UiSimetricnoDekriptiranjeButton.Text = "Simetrično dekriptiranje";
+            this.UiSimetricnoDekriptiranjeButton.UseVisualStyleBackColor = true;
+            this.UiSimetricnoDekriptiranjeButton.Click += new System.EventHandler(this.UiSimetricnoDekriptiranjeButton_Click);
+            // 
+            // UiAsimetricnoDekriptiranjeButton
+            // 
+            this.UiAsimetricnoDekriptiranjeButton.Location = new System.Drawing.Point(6, 119);
+            this.UiAsimetricnoDekriptiranjeButton.Name = "UiAsimetricnoDekriptiranjeButton";
+            this.UiAsimetricnoDekriptiranjeButton.Size = new System.Drawing.Size(155, 55);
+            this.UiAsimetricnoDekriptiranjeButton.TabIndex = 8;
+            this.UiAsimetricnoDekriptiranjeButton.TabStop = false;
+            this.UiAsimetricnoDekriptiranjeButton.Text = "Asimetrično dekriptiranje";
+            this.UiAsimetricnoDekriptiranjeButton.UseVisualStyleBackColor = true;
+            this.UiAsimetricnoDekriptiranjeButton.Click += new System.EventHandler(this.UiAsimetricnoDekriptiranjeButton_Click);
+            // 
+            // UiSimetricnoKriptiranjeButton
+            // 
+            this.UiSimetricnoKriptiranjeButton.Location = new System.Drawing.Point(179, 58);
+            this.UiSimetricnoKriptiranjeButton.Name = "UiSimetricnoKriptiranjeButton";
+            this.UiSimetricnoKriptiranjeButton.Size = new System.Drawing.Size(155, 55);
+            this.UiSimetricnoKriptiranjeButton.TabIndex = 7;
+            this.UiSimetricnoKriptiranjeButton.TabStop = false;
+            this.UiSimetricnoKriptiranjeButton.Text = "Simetrično kriptiranje";
+            this.UiSimetricnoKriptiranjeButton.UseVisualStyleBackColor = true;
+            this.UiSimetricnoKriptiranjeButton.Click += new System.EventHandler(this.UiSimetricnoKriptiranjeButton_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.UiTajniKljucButton);
@@ -115,37 +148,7 @@
             this.UiTajniKljucButton.TabStop = false;
             this.UiTajniKljucButton.Text = "Tajni ključ";
             this.UiTajniKljucButton.UseVisualStyleBackColor = true;
-            // 
-            // UiSimetricnoKriptiranjeButton
-            // 
-            this.UiSimetricnoKriptiranjeButton.Location = new System.Drawing.Point(179, 58);
-            this.UiSimetricnoKriptiranjeButton.Name = "UiSimetricnoKriptiranjeButton";
-            this.UiSimetricnoKriptiranjeButton.Size = new System.Drawing.Size(155, 55);
-            this.UiSimetricnoKriptiranjeButton.TabIndex = 7;
-            this.UiSimetricnoKriptiranjeButton.TabStop = false;
-            this.UiSimetricnoKriptiranjeButton.Text = "Simetrično kriptiranje";
-            this.UiSimetricnoKriptiranjeButton.UseVisualStyleBackColor = true;
-            // 
-            // UiAsimetricnoDekriptiranjeButton
-            // 
-            this.UiAsimetricnoDekriptiranjeButton.Location = new System.Drawing.Point(6, 119);
-            this.UiAsimetricnoDekriptiranjeButton.Name = "UiAsimetricnoDekriptiranjeButton";
-            this.UiAsimetricnoDekriptiranjeButton.Size = new System.Drawing.Size(155, 55);
-            this.UiAsimetricnoDekriptiranjeButton.TabIndex = 8;
-            this.UiAsimetricnoDekriptiranjeButton.TabStop = false;
-            this.UiAsimetricnoDekriptiranjeButton.Text = "Asimetrično dekriptiranje";
-            this.UiAsimetricnoDekriptiranjeButton.UseVisualStyleBackColor = true;
-            this.UiAsimetricnoDekriptiranjeButton.Click += new System.EventHandler(this.UiAsimetricnoDekriptiranjeButton_Click);
-            // 
-            // UiSimetricnoDekriptiranjeButton
-            // 
-            this.UiSimetricnoDekriptiranjeButton.Location = new System.Drawing.Point(179, 119);
-            this.UiSimetricnoDekriptiranjeButton.Name = "UiSimetricnoDekriptiranjeButton";
-            this.UiSimetricnoDekriptiranjeButton.Size = new System.Drawing.Size(155, 55);
-            this.UiSimetricnoDekriptiranjeButton.TabIndex = 9;
-            this.UiSimetricnoDekriptiranjeButton.TabStop = false;
-            this.UiSimetricnoDekriptiranjeButton.Text = "Simetrično dekriptiranje";
-            this.UiSimetricnoDekriptiranjeButton.UseVisualStyleBackColor = true;
+            this.UiTajniKljucButton.Click += new System.EventHandler(this.UiTajniKljucButton_Click);
             // 
             // Form1
             // 

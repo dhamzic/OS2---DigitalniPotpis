@@ -44,7 +44,33 @@ namespace DigitalniPotpis
         private void UiAsimetricnoDekriptiranjeButton_Click(object sender, EventArgs e)
         {
             AsimetricnoKriptiranje ak = new AsimetricnoKriptiranje();
-            UiTekstZaKriptiranjeTxt.Text=ak.DekriptirajTekst();
+            UiTekstZaKriptiranjeTxt.Text = ak.DekriptirajTekst();
+        }
+
+        private void UiSimetricnoKriptiranjeButton_Click(object sender, EventArgs e)
+        {
+            SimetricnoKriptiranje sk = new SimetricnoKriptiranje();
+            UiTekstZaKriptiranjeTxt.Text = sk.KriptirajTekst(UiTekstZaKriptiranjeTxt.Text);
+        }
+
+        private void UiTajniKljucButton_Click(object sender, EventArgs e)
+        {
+            SimetricnoKriptiranje sk = new SimetricnoKriptiranje();
+
+            if (sk.StvoriTajniKljuc() == false)
+            {
+                MessageBox.Show("Tajni ključ uspješno stvoren!", "Simetrično");
+            }
+            else
+            {
+                MessageBox.Show("Tajni ključ neuspješno stvoren!", "Greška");
+            }
+        }
+
+        private void UiSimetricnoDekriptiranjeButton_Click(object sender, EventArgs e)
+        {
+            SimetricnoKriptiranje sk = new SimetricnoKriptiranje();
+            UiTekstZaKriptiranjeTxt.Text = sk.DekriptirajTekst();
         }
 
         //private void UiPrivatniKljucButton_Click(object sender, EventArgs e)
