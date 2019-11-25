@@ -9,8 +9,6 @@ namespace DigitalniPotpis
 {
     public class AsimetricnoKriptiranje
     {
-        //RSA BIBLIOTEKA
-
         public bool StvoriKljuceve()
         {
             bool pogreska = false;
@@ -137,12 +135,8 @@ namespace DigitalniPotpis
             {
                 return false;
             }
-            //string kriptiraniTekst = System.IO.File.ReadAllText(@"asimetricno_kriptiranje.txt");
-            //byte[] kriptiraniTekstBajtniOblik = Convert.FromBase64String(kriptiraniTekst);
-
-            //bool izlaz = rsa.VerifyData(kriptiraniTekstBajtniOblik, "SHA512", potpisanaPoruka);
-
         }
+
         public bool ProvjeriPotpisPoruke()
         {
             //Dohvaćanje privatnog ključa

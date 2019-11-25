@@ -76,7 +76,7 @@ namespace DigitalniPotpis
         private void UiKreirajSazetakButton_Click(object sender, EventArgs e)
         {
             AsimetricnoKriptiranje ak = new AsimetricnoKriptiranje();
-            MessageBox.Show("Sažetak uspješno izračunat:\n+"+ak.KreirajSazetakKriptiranePoruke(),"Sažetak poruke"); 
+            MessageBox.Show("Sažetak uspješno izračunat:\n+" + ak.KreirajSazetakKriptiranePoruke(), "Sažetak poruke");
         }
 
         private void UiDigitalanPotpisButton_Click(object sender, EventArgs e)

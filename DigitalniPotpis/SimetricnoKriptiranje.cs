@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DigitalniPotpis
 {
@@ -13,7 +9,6 @@ namespace DigitalniPotpis
         public bool StvoriTajniKljuc()
         {
             bool greska = false;
-            //string original = "Here is some data to encrypt!";
             using (Aes myAes = Aes.Create())
             {
                 using (var fs = new FileStream("tajni_kljuc.txt", FileMode.Create, FileAccess.Write))
@@ -24,18 +19,6 @@ namespace DigitalniPotpis
                 {
                     fs.Write(myAes.IV, 0, myAes.IV.Length);
                 }
-
-                ////byte[]b= File.ReadAllBytes("tajni_kljuc.txt");
-
-                //// Encrypt the string to an array of bytes.
-                //byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
-
-                //// Decrypt the bytes to a string.
-                //string roundtrip = DecryptStringFromBytes_Aes(encrypted, myAes.Key, myAes.IV);
-
-                ////Display the original data and the decrypted data.
-                //Console.WriteLine("Original:   {0}", original);
-                //Console.WriteLine("Round Trip: {0}", roundtrip);
             }
             return greska;
         }
@@ -44,8 +27,8 @@ namespace DigitalniPotpis
             //Dohvati tajni kljuc i njegov vektor
             byte[] tajniKljuc = File.ReadAllBytes("tajni_kljuc.txt");
             byte[] tajniKljucVektor = File.ReadAllBytes("tajni_kljuc_vektor.txt");
-            // Encrypt the string to an array of bytes.
 
+            //Provjera teksta, kljuca i vektora
             if (string.IsNullOrEmpty(uneseniTekst) || uneseniTekst.Length <= 0)
                 throw new ArgumentNullException("Unesite tekst.");
             if (tajniKljuc == null || tajniKljuc.Length <= 0)
@@ -54,8 +37,7 @@ namespace DigitalniPotpis
                 throw new ArgumentNullException("Vektor tajnog ključa nije generiran.");
             byte[] kriptiraniTekst;
 
-            // Create an Aes object
-            // with the specified key and IV.
+            //Kreiranje AES objekta koji se sastoji od tajnog kljuca i njegovog vektora
             using (Aes aes = Aes.Create())
             {
                 aes.Key = tajniKljuc;
@@ -91,7 +73,7 @@ namespace DigitalniPotpis
             byte[] tajniKljucVektor = File.ReadAllBytes("tajni_kljuc_vektor.txt");
             byte[] kriptiraniTekst = File.ReadAllBytes("simetricno_kriptiranje.txt");
 
-            // Check arguments.
+            // Provjera teksta, kljuca i vektora tajnog kljuca
             if (kriptiraniTekst == null || kriptiraniTekst.Length <= 0)
                 throw new ArgumentNullException("Tekst za dekriptiranje nije unesen.");
             if (tajniKljuc == null || tajniKljuc.Length <= 0)
@@ -99,12 +81,11 @@ namespace DigitalniPotpis
             if (tajniKljucVektor == null || tajniKljucVektor.Length <= 0)
                 throw new ArgumentNullException("Vektor tajnog kljuca nije generiran.");
 
-            // Declare the string used to hold
-            // the decrypted text.
+
             string pocetniTekst = null;
 
-            // Create an Aes object
-            // with the specified key and IV.
+            //Kreiranje aes objekta te punjenje istog sa vec generiranim
+            //kljucem i njegovim vektorom koji se nalaze u pohranjem file-ovima
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = tajniKljuc;
@@ -129,52 +110,7 @@ namespace DigitalniPotpis
                 }
 
             }
-
             return pocetniTekst;
         }
-
-        public string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV)
-        {
-            // Check arguments.
-            if (cipherText == null || cipherText.Length <= 0)
-                throw new ArgumentNullException("cipherText");
-            if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
-
-            // Declare the string used to hold
-            // the decrypted text.
-            string plaintext = null;
-
-            // Create an Aes object
-            // with the specified key and IV.
-            using (Aes aesAlg = Aes.Create())
-            {
-                aesAlg.Key = Key;
-                aesAlg.IV = IV;
-
-                // Create a decryptor to perform the stream transform.
-                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
-
-                // Create the streams used for decryption.
-                using (MemoryStream msDecrypt = new MemoryStream(cipherText))
-                {
-                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-                        {
-
-                            // Read the decrypted bytes from the decrypting stream
-                            // and place them in a string.
-                            plaintext = srDecrypt.ReadToEnd();
-                        }
-                    }
-                }
-
-            }
-            return plaintext;
-        }
-
     }
 }
