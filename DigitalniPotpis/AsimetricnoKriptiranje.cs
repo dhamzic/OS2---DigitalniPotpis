@@ -104,8 +104,67 @@ namespace DigitalniPotpis
             System.IO.File.WriteAllBytes(@"sazetak.txt", sazetakKriptiranePoruke);
 
             return Convert.ToBase64String(sazetakKriptiranePoruke);
+        }
 
+        public bool DigitalnoPotpisiPoruku()
+        {
+            try
+            {
+                //Citanje sažetka
+                byte[] sazetak = System.IO.File.ReadAllBytes(@"sazetak.txt");
 
+                //Dohvaćanje privatnog ključa
+                RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
+
+                var privatniKljuc = rsa.ExportParameters(true);
+                var sr = new System.IO.StringReader(System.IO.File.ReadAllText(@"privatni_kljuc.txt"));
+                var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
+
+                privatniKljuc = (RSAParameters)xs.Deserialize(sr);
+
+                rsa = new RSACryptoServiceProvider();
+                rsa.ImportParameters(privatniKljuc);
+
+                //PotpisivanjePoruke
+                byte[] potpisanaPoruka = rsa.SignHash(sazetak, "SHA512");
+
+                //Zapisivanje potpisane poruke u .txt
+                System.IO.File.WriteAllBytes(@"digitalniPotpis.txt", potpisanaPoruka);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            //string kriptiraniTekst = System.IO.File.ReadAllText(@"asimetricno_kriptiranje.txt");
+            //byte[] kriptiraniTekstBajtniOblik = Convert.FromBase64String(kriptiraniTekst);
+
+            //bool izlaz = rsa.VerifyData(kriptiraniTekstBajtniOblik, "SHA512", potpisanaPoruka);
+
+        }
+        public bool ProvjeriPotpisPoruke()
+        {
+            //Dohvaćanje privatnog ključa
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
+
+            var javniKljuc = rsa.ExportParameters(true);
+            var sr = new System.IO.StringReader(System.IO.File.ReadAllText(@"javni_kljuc.txt"));
+            var xs = new System.Xml.Serialization.XmlSerializer(typeof(RSAParameters));
+
+            javniKljuc = (RSAParameters)xs.Deserialize(sr);
+
+            rsa = new RSACryptoServiceProvider();
+            rsa.ImportParameters(javniKljuc);
+
+            //Citanje kriptiranog teksta i potpisane poruke
+            string kriptiraniTekst = System.IO.File.ReadAllText(@"asimetricno_kriptiranje.txt");
+            byte[] kriptiraniTekstBajtniOblik = Convert.FromBase64String(kriptiraniTekst);
+
+            byte[] digitalniPotpis = System.IO.File.ReadAllBytes(@"digitalniPotpis.txt");
+
+            //Provjera potpisa
+            return rsa.VerifyData(kriptiraniTekstBajtniOblik, "SHA512", digitalniPotpis);
         }
     }
 }

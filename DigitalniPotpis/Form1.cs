@@ -78,5 +78,32 @@ namespace DigitalniPotpis
             AsimetricnoKriptiranje ak = new AsimetricnoKriptiranje();
             MessageBox.Show("Sažetak uspješno izračunat:\n+"+ak.KreirajSazetakKriptiranePoruke(),"Sažetak poruke"); 
         }
+
+        private void UiDigitalanPotpisButton_Click(object sender, EventArgs e)
+        {
+            AsimetricnoKriptiranje ak = new AsimetricnoKriptiranje();
+            if (ak.DigitalnoPotpisiPoruku() == true)
+            {
+                MessageBox.Show("Poruka uspješno potpisana!", "Digitalni potpis");
+            }
+            else
+            {
+                MessageBox.Show("Poruka nije potpisana.", "Digitalni potpis");
+            }
+
+        }
+
+        private void UiProvjeriPotpisButton_Click(object sender, EventArgs e)
+        {
+            AsimetricnoKriptiranje ak = new AsimetricnoKriptiranje();
+            if (ak.ProvjeriPotpisPoruke() == true)
+            {
+                MessageBox.Show("Tekst je validan i originalan.", "Digitalni potpis");
+            }
+            else
+            {
+                MessageBox.Show("Tekst nije validan.", "Digitalni potpis");
+            }
+        }
     }
 }

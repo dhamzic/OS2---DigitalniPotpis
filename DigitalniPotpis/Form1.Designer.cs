@@ -187,6 +187,7 @@
             this.UiProvjeriPotpisButton.TabStop = false;
             this.UiProvjeriPotpisButton.Text = "Provjeri potpis";
             this.UiProvjeriPotpisButton.UseVisualStyleBackColor = true;
+            this.UiProvjeriPotpisButton.Click += new System.EventHandler(this.UiProvjeriPotpisButton_Click);
             // 
             // UiDigitalanPotpisButton
             // 
@@ -197,6 +198,7 @@
             this.UiDigitalanPotpisButton.TabStop = false;
             this.UiDigitalanPotpisButton.Text = "Digitalno potpiši";
             this.UiDigitalanPotpisButton.UseVisualStyleBackColor = true;
+            this.UiDigitalanPotpisButton.Click += new System.EventHandler(this.UiDigitalanPotpisButton_Click);
             // 
             // Form1
             // 
