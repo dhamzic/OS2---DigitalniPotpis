@@ -90,5 +90,22 @@ namespace DigitalniPotpis
 
             return System.Text.Encoding.Unicode.GetString(tekstBajtniOblik);
         }
+
+        public string KreirajSazetakKriptiranePoruke()
+        {
+            SHA512 hashFunkcija = SHA512.Create();
+            byte[] sazetakKriptiranePoruke;
+
+            //Dohvacanje asimetricnog kriptiranja teksta i izračunavanje sažetka kriptiranog teksta
+            var kriptiraniTekst = Convert.FromBase64String(System.IO.File.ReadAllText(@"asimetricno_kriptiranje.txt"));
+            sazetakKriptiranePoruke = hashFunkcija.ComputeHash(kriptiraniTekst);
+
+            //Zapisivanje sažetka u .txt
+            System.IO.File.WriteAllBytes(@"sazetak.txt", sazetakKriptiranePoruke);
+
+            return Convert.ToBase64String(sazetakKriptiranePoruke);
+
+
+        }
     }
 }

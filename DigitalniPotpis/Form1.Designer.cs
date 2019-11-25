@@ -38,9 +38,14 @@
             this.UiSimetricnoKriptiranjeButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.UiTajniKljucButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.UiKreirajSazetakButton = new System.Windows.Forms.Button();
+            this.UiProvjeriPotpisButton = new System.Windows.Forms.Button();
+            this.UiDigitalanPotpisButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // UiGenerirajKljuceveButton
@@ -57,7 +62,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.UiGenerirajKljuceveButton);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(54, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(167, 101);
             this.groupBox1.TabIndex = 2;
@@ -89,7 +94,7 @@
             this.groupBox3.Controls.Add(this.UiSimetricnoKriptiranjeButton);
             this.groupBox3.Controls.Add(this.UiTekstZaKriptiranjeTxt);
             this.groupBox3.Controls.Add(this.UiAsimetricnoKriptiranjeButton);
-            this.groupBox3.Location = new System.Drawing.Point(12, 119);
+            this.groupBox3.Location = new System.Drawing.Point(54, 119);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(340, 182);
             this.groupBox3.TabIndex = 7;
@@ -132,7 +137,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.UiTajniKljucButton);
-            this.groupBox4.Location = new System.Drawing.Point(185, 12);
+            this.groupBox4.Location = new System.Drawing.Point(227, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(167, 101);
             this.groupBox4.TabIndex = 8;
@@ -150,11 +155,55 @@
             this.UiTajniKljucButton.UseVisualStyleBackColor = true;
             this.UiTajniKljucButton.Click += new System.EventHandler(this.UiTajniKljucButton_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.UiDigitalanPotpisButton);
+            this.groupBox2.Controls.Add(this.UiProvjeriPotpisButton);
+            this.groupBox2.Controls.Add(this.UiKreirajSazetakButton);
+            this.groupBox2.Location = new System.Drawing.Point(54, 307);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(340, 161);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Asimetrično";
+            // 
+            // UiKreirajSazetakButton
+            // 
+            this.UiKreirajSazetakButton.Location = new System.Drawing.Point(6, 33);
+            this.UiKreirajSazetakButton.Name = "UiKreirajSazetakButton";
+            this.UiKreirajSazetakButton.Size = new System.Drawing.Size(155, 52);
+            this.UiKreirajSazetakButton.TabIndex = 0;
+            this.UiKreirajSazetakButton.TabStop = false;
+            this.UiKreirajSazetakButton.Text = "Kreiraj sažetak";
+            this.UiKreirajSazetakButton.UseVisualStyleBackColor = true;
+            this.UiKreirajSazetakButton.Click += new System.EventHandler(this.UiKreirajSazetakButton_Click);
+            // 
+            // UiProvjeriPotpisButton
+            // 
+            this.UiProvjeriPotpisButton.Location = new System.Drawing.Point(179, 91);
+            this.UiProvjeriPotpisButton.Name = "UiProvjeriPotpisButton";
+            this.UiProvjeriPotpisButton.Size = new System.Drawing.Size(155, 52);
+            this.UiProvjeriPotpisButton.TabIndex = 1;
+            this.UiProvjeriPotpisButton.TabStop = false;
+            this.UiProvjeriPotpisButton.Text = "Provjeri potpis";
+            this.UiProvjeriPotpisButton.UseVisualStyleBackColor = true;
+            // 
+            // UiDigitalanPotpisButton
+            // 
+            this.UiDigitalanPotpisButton.Location = new System.Drawing.Point(179, 33);
+            this.UiDigitalanPotpisButton.Name = "UiDigitalanPotpisButton";
+            this.UiDigitalanPotpisButton.Size = new System.Drawing.Size(155, 52);
+            this.UiDigitalanPotpisButton.TabIndex = 2;
+            this.UiDigitalanPotpisButton.TabStop = false;
+            this.UiDigitalanPotpisButton.Text = "Digitalno potpiši";
+            this.UiDigitalanPotpisButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(442, 480);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -168,6 +217,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -184,6 +234,10 @@
         private System.Windows.Forms.Button UiSimetricnoKriptiranjeButton;
         private System.Windows.Forms.Button UiSimetricnoDekriptiranjeButton;
         private System.Windows.Forms.Button UiAsimetricnoDekriptiranjeButton;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button UiProvjeriPotpisButton;
+        private System.Windows.Forms.Button UiKreirajSazetakButton;
+        private System.Windows.Forms.Button UiDigitalanPotpisButton;
     }
 }
 
